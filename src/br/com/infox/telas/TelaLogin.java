@@ -11,10 +11,8 @@ import br.com.infox.dal.ModuloConexao;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author José de Assis
- */
+
+
 public class TelaLogin extends javax.swing.JFrame {
 
     //  usando a variavel conexao do DAL
@@ -31,9 +29,9 @@ public class TelaLogin extends javax.swing.JFrame {
         //logica principal para pesquisar no banco de dados
         String sql = "select * from tbusuario where login = ? and senha = ?";
         try {
-//as linhas abaixo preparam a consulta em função do que foi 
-//digitado nas caixas de texto. O ? é substituído pelo conteúdo
-//das variáveis que são armazenadas em pst.setString
+        //as linhas abaixo preparam a consulta em função do que foi 
+        //digitado nas caixas de texto. O ? é substituído pelo conteúdo
+        //das variáveis que são armazenadas em pst.setString
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtUsuario.getText());
             pst.setString(2, txtSenha.getText());
@@ -48,11 +46,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 if (perfil.equals("admin")) {
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
-                    //TelaPrincipal.menRel.setEnabled(true);
-                    //TelaPrincipal.menCadUsu.setEnabled(true);
                     TelaPrincipal.lblUsuario.setText(rs.getString(2));
                     TelaPrincipal.lblUsuario.setForeground(Color.green);
                     this.dispose();
+                    
                 }else{
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
@@ -107,29 +104,38 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(lblConexao);
         lblConexao.setBounds(180, 260, 32, 32);
 
-        txtUsuario.setEditable(false);
         txtUsuario.setBackground(new java.awt.Color(217, 217, 217));
-        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
         txtUsuario.setBorder(null);
-        txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(283, 172, 134, 14);
+        txtUsuario.setBounds(283, 172, 134, 16);
+        txtUsuario.getAccessibleContext().setAccessibleName("");
 
         txtSenha.setBackground(new java.awt.Color(217, 217, 217));
         txtSenha.setForeground(new java.awt.Color(102, 102, 102));
         txtSenha.setBorder(null);
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(283, 212, 134, 16);
+        txtSenha.setBounds(283, 212, 134, 14);
 
         btnLogin.setBorder(null);
         btnLogin.setContentAreaFilled(false);
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnLogin.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +147,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         btnSair.setBorder(null);
         btnSair.setContentAreaFilled(false);
-        btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -159,10 +165,6 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         //chamando o método logar
         logar();
@@ -175,6 +177,19 @@ public class TelaLogin extends javax.swing.JFrame {
         System.exit(0);
         }
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaKeyTyped
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+        logar();
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
