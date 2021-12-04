@@ -18,11 +18,11 @@ Hoje vamos falar sobre o nosso projeto que é a criação da Inovac Techonology
 
  
 
-O Objetivo principal da nossa aplicação é otimizar a operação do estabelecimento, gerando valor para o cliente, além de melhorar o controle e gestão das vendas da loja e fornecendo uma visão mais aprofundada para o comerciante ou administrador.
+O objetivo principal da nossa aplicação é otimizar a operação do estabelecimento, gerando valor para o cliente, além de melhorar o controle e gestão das vendas da loja e fornecendo uma visão mais aprofundada para o comerciante ou administrador.
 
  
 
-O Software é produzido de acordo com as principais necessidades do cliente, tornando assim o produto completamente personalizado, e além disso a Inovac realiza a implantação e faz o acompanhamento, a fim de deixar a solução mais adequada possível.
+O software é produzido de acordo com as principais necessidades do cliente, tornando assim o produto completamente personalizado, e além disso a Inovac realiza a implantação e faz o acompanhamento, a fim de deixar a solução mais adequada possível.
 
  
 
